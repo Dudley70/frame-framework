@@ -1,0 +1,23 @@
+workflow:
+  id: greenfield-fullstack
+  name: Greenfield Full-Stack Application Development
+  description: >-
+    Agent workflow for building full-stack applications from concept to development.
+  type: greenfield
+  sequence:
+    - agent: analyst
+      creates: project-brief.md
+    - agent: pm
+      creates: prd.md
+      requires: project-brief.md
+    - agent: architect
+      creates: fullstack-architecture.md
+      requires: prd.md
+    - agent: po
+      validates: all_artifacts
+    - agent: sm
+      action: create_story
+    - agent: dev
+      action: implement_story
+    - agent: qa
+      action: review_implementation
