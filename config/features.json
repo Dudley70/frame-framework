@@ -1,0 +1,42 @@
+{
+  "components": {
+    "core": {
+      "name": "core",
+      "version": "1.1.0",
+      "description": "FRAME framework documentation and core files",
+      "category": "core",
+      "dependencies": [],
+      "enabled": true
+    },
+    "commands": {
+      "name": "commands",
+      "version": "1.1.0",
+      "description": "FRAME two-tier slash command definitions",
+      "category": "commands",
+      "dependencies": [
+        "core"
+      ],
+      "enabled": true
+    },
+    "mcp": {
+      "name": "mcp",
+      "version": "1.1.0",
+      "description": "MCP server integration for tools like Playwright",
+      "category": "integration",
+      "dependencies": [
+        "core"
+      ],
+      "enabled": true
+    },
+    "bmad": {
+      "name": "bmad",
+      "version": "1.1.0",
+      "description": "Core BMAD agentic components (agents, tasks, workflows)",
+      "category": "agentic",
+      "dependencies": [
+        "core"
+      ],
+      "enabled": true
+    }
+  }
+}
