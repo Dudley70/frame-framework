@@ -17,7 +17,17 @@ workflow:
       validates: all_artifacts
     - agent: sm
       action: create_story
+      id: create_story_step
     - agent: dev
       action: implement_story
+      id: implement_story_step
+      requires: create_story_step
     - agent: qa
-      action: review_implementation
+      action: automated_qa_review # New automated QA task
+      id: qa_review_step
+      requires: implement_story_step
+    - agent: dev # Conditional step
+      action: address_qa_feedback
+      id: address_feedback_step
+      condition: "status == 'InProgress_QA_Failed'" # Loops if QA finds issues
+      requires: qa_review_step
