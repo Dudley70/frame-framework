@@ -1,0 +1,4 @@
+# Session Log Template (YAML Structure)
+cycle: PAOA
+status: pending
+insights: []
