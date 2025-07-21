@@ -36,7 +36,10 @@
       "dependencies": [
         "core"
       ],
-      "enabled": true
+      "enabled": true,
+      "agents": ["analyst", "dev", "qa", "sm"],
+      "tasks": ["create-story", "advanced-elicitation"],
+      "workflows": ["fullstack.yaml"]
     }
   }
 }
