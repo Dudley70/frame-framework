@@ -38,7 +38,7 @@
       ],
       "enabled": true,
       "agents": ["analyst", "dev", "qa", "sm"],
-      "tasks": ["create-story", "advanced-elicitation", "automated-qa-review"],
+      "tasks": ["create-story", "advanced-elicitation", "automated-qa-review", "reflect-update-kb"],
       "workflows": ["fullstack.yaml"]
     }
   }
