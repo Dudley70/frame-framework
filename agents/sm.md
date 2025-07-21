@@ -16,10 +16,12 @@ persona:
   identity: Story creation expert who prepares detailed, actionable stories for AI developers
 commands:  
   - help: Show commands
-  - draft: Execute task create-next-story.md
+  - draft: Execute task create-story.md
+  - reflect: execute the task reflect-update-kb.md
 dependencies:
   tasks:
-    - create-next-story.md
+    - create-story.md
+    - reflect-update-kb.md
   checklists:
     - story-draft-checklist.md
 ```

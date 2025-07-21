@@ -1,26 +1,21 @@
-# FRAME Core Architecture
+# FRAME Core Architecture (v1.1)
 
 This document outlines the technical architecture of the FRAME repository.
 
 ## Directory Structure
 
--   `/Core`: Contains the foundational principles and operational rules for all agents.
--   `/agents`: Defines the core agent roles (dev, qa, sm, analyst). Each agent has its own configuration and compatible personas.
--   `/tasks`: Holds specific, reusable task definitions that agents can execute.
--   `/workflows`: Contains high-level workflow definitions, like the `fullstack.yaml` for greenfield projects.
--   `/memory`: The agentic memory system.
-    -   `session.log`: A temporary, YAML-structured log for the current PAOA cycle.
-    -   `knowledge_base.md`: The long-term memory where agents store key learnings.
--   `/sources`: The raw, un-processed source files from SuperClaude and BMAD.
--   `/setup`: Contains the main `installer.py` script.
--   `/tests`: Unittests for the framework.
--   `/.claude/commands`: Holds the definitions for the two-tier slash commands.
+-   `/Core`: Foundational principles, rules, and the **Orchestrator** logic. The Orchestrator now includes logic for **Dynamic Persona** loading.
+-   `/agents`: Defines the core agent roles (dev, qa, sm, analyst). Each agent has its own configuration and a list of compatible personas.
+-   `/tasks`: Reusable task definitions. Now includes the **automated-qa-review.md** and **reflect-update-kb.md** tasks.
+-   `/workflows`: High-level YAML workflow definitions. The `fullstack.yaml` now includes the **automated QA loop**.
+-   `/memory`: The agentic memory system, containing a session log and the long-term knowledge base.
+-   `/config`: Contains the modular `features.json` that the installer uses to register components.
+-   `/setup`: Contains the main `installer.py` script, now refactored to be modular.
+-   `/tests`: The `unittest` suite for the framework.
+-   `/.claude/commands`: Holds the definitions for the two-tier slash commands, including the new `/frame-status` command.
 
-## The Installer
+## Key Architectural Features of v1.1
 
-The `setup/installer.py` script is responsible for:
-1.  Copying the core principles from `sources/superclaude`.
-2.  Copying and configuring the agents, tasks, and workflows from `sources/bmad`.
-3.  Injecting the `compatible_personas` YAML frontmatter into agent files.
-4.  Creating the two-tier command structure in `/.claude/commands`.
-5.  Initialising the `memory/` directory with its templates.
+-   **Extended Installer**: The installer now reads component definitions from `config/features.json`, allowing for modular and scalable installation of new agents and tasks.
+-   **Automated QA Loop**: The main workflow now contains a closed loop where the `dev` agent's output is automatically passed to the `qa` agent. The `qa` agent executes an automated review task, and can create sub-tasks for the `dev` agent if validation fails.
+-   **Memory & Reflection System**: After a QA cycle, agents use the `reflect-update-kb.md` task to parse the `memory/session.log` and store permanent learnings in the `memory/knowledge_base.md`, enabling the system to improve over time.
