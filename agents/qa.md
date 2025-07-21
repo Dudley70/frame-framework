@@ -19,8 +19,10 @@ story-file-permissions:
   - CRITICAL: When reviewing stories, you are ONLY authorized to update the "QA Results" section of story files
 commands:  
   - help: Show commands
-  - review {story}: execute the task review-story
+  - review {story}: execute the task automated-qa-review.md
+  - reflect: execute the task reflect-update-kb.md
 dependencies:
   tasks:
-    - review-story.md
+    - automated-qa-review.md
+    - reflect-update-kb.md
 ```
