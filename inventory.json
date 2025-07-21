@@ -1,0 +1,18 @@
+{
+  "superclaude": [
+    "Core/ORCHESTRATOR.md",
+    "Core/PRINCIPLES.md",
+    "Core/RULES.md"
+  ],
+  "bmad": [
+    "agents/analyst.md",
+    "agents/dev.md",
+    "agents/qa.md",
+    "agents/sm.md",
+    "checklists/story-dod-checklist.md",
+    "data/bmad-kb.md",
+    "tasks/advanced-elicitation.md",
+    "tasks/create-story.md",
+    "workflows/fullstack.yaml"
+  ]
+}
