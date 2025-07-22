@@ -38,3 +38,10 @@ You can get a quick snapshot of what an agent is doing during a long-running `/f
 ```bash
 /frame-status
 ```
+
+## 4.0 Structured Project Management in FRAME
+For projects that span multiple sessions, FRAME incorporates a structured project management methodology to ensure context is never lost and development remains focused. This methodology is built on three key documents:
+1.  **The Master Development Brief**: The long-term strategic plan for the entire project. It contains the full roadmap, technical specifications for all phases, and core architectural principles.
+2.  **The Task Specification**: A granular, tactical plan for a single User Story. It breaks down the task into precise technical steps and is used to generate prompts for the AI agent.
+3.  **The Handover Document**: A point-in-time snapshot created at the end of a work session. It captures the final state of the project and defines the objective for the next session.
+This approach provides a robust and repeatable process, taking you cleanly from high-level strategy to low-level, AI-driven execution.
